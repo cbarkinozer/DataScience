@@ -1,0 +1,74 @@
+#Not my code/benim kodum degil
+#Just for educational purposes
+
+from numpy import exp, array, random, dot
+
+
+class NeuralNetwork():
+    def __init__(self):
+        #Rastgele sayı üreticisini "seed'le" ki program her çalıştığında aynı 
+        #sayıyı üretsin
+        random.seed(1)
+        # Tek bir siniri 3 girdi ve 1 çıktı bağlantısı ile modelliyoruz. 3x1 bir
+        # matrise -1 ile 1 arasında ortalaması 0 olan rastgele ağırlıklar atıyoruz.
+        self.synaptic_weights = 2 * random.random((3, 1)) - 1
+
+    # Sigma fonksiyonu s şeklinde bir fonksiyondur.
+    # Girdilerin ağırlık toplamlarını 0 ile 1 aralığında "normalleştirmek" için
+    # onları(girdilerin ağırlık toplamlarını) bu fonksiyona sokarız.
+    def __sigmoid(self, x):
+        return 1 / (1 + exp(-x))
+
+    # Sigma fonksiyonunun türevi.
+    # Bu sigma fonksiyonunun eğrisidir.
+    # Mevcut ağırlık konusunda ne kadar emin olduğumuzu gösterir.
+    def __sigmoid_derivative(self, x):
+        return x * (1 - x)
+
+    # Sinir ağını deneme yanılma süreci ile eğitiyoruz.
+    # Her seferinde sinaptik ağırlıkları ayarlıyoruz.
+    def train(self, training_set_inputs, training_set_outputs, number_of_training_iterations):
+        for iteration in xrange(number_of_training_iterations):
+            # Eğitim setini sinir ağımız üzerinden geçiriyoruz (bir adet sinir).
+            output = self.think(training_set_inputs)
+
+            # Hatayı hesapla (İstenilen ve alınan çıktı arasındaki fark).
+            error = training_set_outputs - output
+
+            # Hatayı girdi ve tekrar sigma fonksiyonunun eğrisinin gradyanı 
+            #ile çarpıyoruz.Bu, daha az güvenli ağırlıkların daha fazla ayarlandığı 
+            #anlamına gelir. Bu girdilerin(ki sıfırlar) ağırlıkta değişim yaratmadığını
+            # gösterir.
+            adjustment = dot(training_set_inputs.T, error * self.__sigmoid_derivative(output))
+
+            # Ağırlıkları ayarla.
+            self.synaptic_weights += adjustment
+
+    # Yapay sinir ağı düşünüyor.
+    def think(self, inputs):
+        # Girdileri yapay sinir ağımıza sok (tek bir sinir).
+        return self.__sigmoid(dot(inputs, self.synaptic_weights))
+
+
+if __name__ == "__main__":
+
+    #Tek bir nöron sinir ağını başlatın.
+    neural_network = NeuralNetwork()
+
+    print "Random starting synaptic weights: "
+    print neural_network.synaptic_weights
+
+    # Set eğitiliyor. Her biri 3 girdi ve 1 çıktıdan oluşan 4 örneğimiz var.
+    training_set_inputs = array([[0, 0, 1], [1, 1, 1], [1, 0, 1], [0, 1, 1]])
+    training_set_outputs = array([[0, 1, 1, 0]]).T
+
+    # Bir eğitim seti kullanarak sinir ağını eğitin.
+    # Bunu 10.000 kez yapın ve her seferinde küçük ayarlamalar yapın.
+    neural_network.train(training_set_inputs, training_set_outputs, 10000)
+
+    print "New synaptic weights after training: "
+    print neural_network.synaptic_weights
+
+    # Sinir ağını yeni bir durumla test edin.
+    print "Considering new situation [1, 0, 0] -> ?: "
+    print neural_network.think(array([1, 0, 0]))
