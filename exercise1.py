@@ -1,6 +1,8 @@
+##Multiple lineer regression exercise
+
 #not my code
 #all rights belongs to "btkakademi-python ile makine öğrenmesi" course
-##Multiple lineer regression exercise
+
 #modules
 import numpy as np
 import pandas as pd
