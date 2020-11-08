@@ -1,4 +1,4 @@
-#Forecast values
+#Learned a lot but can't make it work
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -45,11 +45,24 @@ test['ISLEM_TUTARI'] = 0
 cols = test.columns.tolist()
 cols = cols[-1:] + cols[:-1]
 test = test[cols]
+# I must  have consist number of rows
+data.shape
+test.shape
+
+data = data[data.index < 219666]
+
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(data, test, test_size=0.33, random_state=42)
+
 #fit model
 from sklearn.linear_model import  LinearRegression
 regressor=LinearRegression()
-y_pred = regressor.fit(data,test)
+y_pred = regressor.fit(X_train,y_train)
 print(y_pred)
+prediction = y_pred.predict(X_test)
+print(prediction)
+
+#My prediction is meaningless so i quit here
 
 # make a new dataframe
 # in that dataframe there will be 2 columns
