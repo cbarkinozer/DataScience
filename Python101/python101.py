@@ -1,5 +1,5 @@
 #FIRST PROBLEM
-#Flattening 3d and higher dimensions irregular lists
+#Flatten 3d and higher dimensions irregular lists
 my_list1=[[1,'a',['cat'],2],[[[3]],'dog'],4,5]
 import collections
 #Only 2D or 1D can be flattened with itertools.chain.from_iterable() 
@@ -16,6 +16,7 @@ print(my_list1)
 #>>> [5, 4, 3, 'dog', 1, 'a', 'cat', 2]
 
 #SECOND PROBLEM
+#Reverse lists and the sublists
 my_list2=[[1, 2], [3, 4], [5, 6, 7]]
 #Reverse the list
 my_list2.reverse()
