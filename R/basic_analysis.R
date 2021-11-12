@@ -141,9 +141,10 @@ popular_dests%>%
   mutate(prop_elay=arr_delay/sum(arr_delay)) %>%
   arrange(desc(prop_delay))
 
-#How to create a tibble
-df<-tibble(x=1:3,y=3:1)
+df<-tibble(x=1:3,y=3:1) #How to create a tibble
 
+
+#Tibble add row
 df%>%
   add_row(x=4,y=0)
 
@@ -153,13 +154,15 @@ df%>%
 df%>%
   rows_insert(tibble(x=4,y=0))
 
+#Adding tibble as a row
 df%>%
   add_row(tibble(x=4,y=0))
 
+#It is suggested that you do not delete data
 df%>%
   rows_delete(tibble(x=3))
-#Do not delete data
 
+#Instead filter the data
 df%>%
   filter(x!=3)
 
