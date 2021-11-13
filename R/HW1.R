@@ -17,7 +17,8 @@ eye_frequency<-starwars %>%
 arrange(eye_frequency,desc(count))
 
 #3.answer
-mean_age<-starwars %>%
+na_deleted=filter(starwars,birth_year !="NA")
+mean_age<-na_deleted %>%
   group_by(species) %>%
   summarize(
     mean_birth=mean(birth_year)
