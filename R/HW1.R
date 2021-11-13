@@ -33,6 +33,6 @@ my_character$mass<-as.double(my_character$mass)
 tail(my_character,1)
 
 #5. answer
-my_character %>%
+my_character<-my_character %>%
   mutate(name,BMI=mass/((height/100)^2))
 (my_character)
