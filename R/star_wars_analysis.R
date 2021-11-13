@@ -17,6 +17,8 @@ eye_frequency<-starwars %>%
 arrange(eye_frequency,desc(count))
 
 #3.answer
+#When an element of a specie's birth_year is null
+#Mean becomes null therefore I delete NA values
 na_deleted=filter(starwars,birth_year !="NA")
 mean_age<-na_deleted %>%
   group_by(species) %>%
@@ -53,3 +55,10 @@ ggplot(data=age_below_hundred)+
   geom_point(mapping=aes(x=birth_year,y=BMI))
 
 #7. answer
+ggplot(data=age_below_hundred)+
+  geom_point(mapping=aes(x=birth_year,y=BMI))+
+  geom_smooth(mapping=aes(x=birth_year,y=BMI))
+
+ggplot(data=age_below_hundred,mapping=aes(x=birth_year,y=BMI))+
+  geom_point()+
+  geom_smooth(data=filter(age_below_hundred,birth_year<100 & BMI<100))
