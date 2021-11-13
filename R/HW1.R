@@ -27,8 +27,12 @@ head(a1,3)
 
 
 #4. answer
-my_character<-rbind(starwars,c("cbarkinozer",183,70,"brown","blue",22.0,"male","masculine","Tatooin","Human","A New Hope","Imperial speeder bike","X-wing"))
+my_character<-rbind(starwars,c(name="cbarkinozer",height=183,mass=70,hair_color="brown",skin_color="light",eye_color="blue",birth_year=22.0,sex="male",gender="masculine",homeworld="Tatooin",species="Human","A New Hope","Imperial speeder bike","x-wing"))
+my_character$height<-as.integer(my_character$height)
+my_character$mass<-as.double(my_character$mass)
 tail(my_character,1)
 
 #5. answer
-mutate(my_character,BMI=mass/sqrt(height/100))
+my_character %>%
+  mutate(name,BMI=mass/((height/100)^2))
+(my_character)
