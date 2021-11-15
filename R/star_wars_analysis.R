@@ -8,6 +8,8 @@ view(starwars)#Show all data
 
 ship_owners<-filter(starwars,starships !="character(0)")
 
+length(ship_owners$name)
+
 (ship_owners$name)
 
 #2. answer
