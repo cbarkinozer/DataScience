@@ -35,6 +35,8 @@ mean_age<-na_deleted %>%
     mean_birth=mean(birth_year)
   )
 
+(mean_age)
+
 specie_mean_age<-arrange(mean_age,desc(mean_birth))
 
 specie_mean_age[c(1,2,3),]
@@ -69,12 +71,17 @@ my_character<-my_character %>%
 
 #6. answer
 
+#NA body_types exist because some of their mass or height are NA.
+#I didn't delete them because it gives us a clue that 
+#those whose body_type is NA are over 50 years old.
+
+
 my_character$birth_year<-as.integer(my_character$birth_year)
 
 age_below_hundred<-filter(my_character,birth_year<100.0)
 
 ggplot(data=age_below_hundred)+
-  geom_point(mapping=aes(x=birth_year,y=BMI))
+  geom_point(mapping=aes(x=birth_year,y=body_type))
 
 #7. answer
 ggplot(data=my_character)+
