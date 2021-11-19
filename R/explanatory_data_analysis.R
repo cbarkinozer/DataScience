@@ -67,7 +67,7 @@ ggplot(data=diamonds2,mapping=aes(x=x,y=y))+
 nycflights13::flights %>%
   mutate(
     cancelled=is.na(dep_time),
-    sched_hour = sched_dep_time %/% 100, #böl
+    sched_hour = sched_dep_time %/% 100, #bÃ¶l
     sched_min = sched_dep_time %% 100, #Modunu al
     sched_dep_time= sched_hour + sched_min /60
   ) %>%
