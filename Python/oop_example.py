@@ -23,10 +23,19 @@ class Circle(Shape,object):
         if not isinstance(radius,float):
             raise TypeError('Expected float')
         self._radius=radius
+    
+    def main():
+        print("Classes inherit the object class by default.")
+        print("You can do multiple inheritance. Python searches first and second")
+        print("childeren first than goes for parent until the object class.")
+        
+        
 
-#Classes inherit the "object class" by default.
-#You can do multiple inheritance. Python searches first and second
-#childeren first than goes for parent until the "object class".
+if __name__ == "__main__":
+    main()
+
+print("If you run the program from this script __name__== __main_")
+print("Else __name__== "oop_example")
 
 c=Circle(4.0)
 
