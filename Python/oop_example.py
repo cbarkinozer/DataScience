@@ -48,8 +48,14 @@ c=Circle(4.0)
 
 area=c.area()
 perimeter=c.perimeter()
-#c.radius(4.0)
-#radius=radius(c)
+radius=c.radius
+print("\n")
+
+print(area,perimeter,radius)#50.26548245743669 25.132741228718345 4.0
+c.radius=5.0
+print(c.radius)#5.0
+print("\n")
+
 
 print("All data in python are stored in dictionaries")
 print("Classes and instances have their own private dict")
