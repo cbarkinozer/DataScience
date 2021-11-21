@@ -68,3 +68,15 @@ lookup=c.area
 print("This is a lookup: ",lookup)
 print("This is a method invocation: ",lookup())
 print("\n")
+
+''' SOME OF THE OUTPUT:
+Attributes of the instance: {}
+Methods of the class: {'__module__': '__main__', '__slots__': '_radius', '__init__': <function Circle.__init__ at 0x000001F857AA4E50>, 'area': <function Circle.area at 0x000001F857AA4EE0>, 'perimeter': <function Circle.perimeter at 0x000001F857AA4F70>, 'radius': <property object at 0x000001F857A9CEF0>, '_radius': <member '_radius' of 'Circle' objects>, '__doc__': None}
+Instance class's dict: <class '__main__.Circle'>
+Method resolution order(class search order): (<class '__main__.Circle'>, <class '__main__.Shape'>, <class 'object'>)
+Is c instance of the parent class Shape?  True
+
+
+This is a lookup:  <bound method Circle.area of <__main__.Circle object at 0x000001F857AAFFC0>>
+This is a method invocation:  50.26548245743669
+'''
