@@ -1,3 +1,4 @@
+import math
 class Shape():
     pass
 class Circle(Shape,object):
@@ -12,11 +13,16 @@ class Circle(Shape,object):
 
     @property #getter
     def area(self):
-        return math.pi*(self.radius**2)
+        return math.pi * pow(self._radius,2)
 
     @property
     def perimeter(self):
-        return 2*math.pi*self.radius
+        return 2*math.pi*self._radius
+
+    @property
+    def radius():
+        return _radius
+
 
     @radius.setter #setter
     def radius(self,radius):
@@ -24,24 +30,26 @@ class Circle(Shape,object):
             raise TypeError('Expected float')
         self._radius=radius
     
-    def main():
+        
+
+def main():
         print("Classes inherit the object class by default.")
         print("You can do multiple inheritance. Python searches first and second")
         print("childeren first than goes for parent until the object class.")
-        
-        
+        print("\n")
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
 
 print("If you run the program from this script __name__== __main_")
-print("Else __name__== "oop_example")
+print("Else __name__== 'oop_example' ")
+print("\n")
 
 c=Circle(4.0)
 
-a=c.area()
-p=c.perimeter()
-r=c.radius
+area=c.area()
+perimeter=c.perimeter()
+radius=c.radius()
 
 print("All data in python are stored in dictionaries")
 print("Classes and instances have their own private dict")
@@ -57,10 +65,3 @@ print("Is c instance of the parent class Shape ?"+isinstance(c, Shape))
 lookup=c.area
 print("This is a lookup: "+lookup)
 print("This is a method invocation: "+lookup())
-
-#I could not solve this error.
-#File "<string>", line 6, in <module>
-#  File "<string>", line 24, in Circle
-#NameError: name 'radius' is not defined
-
-
