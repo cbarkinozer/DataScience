@@ -1,6 +1,8 @@
 import math
 class Shape():
-    pass
+    def __init__(self,radius):
+        self._radius=666
+        print("PRANK 'EM JOHN")
 class Circle(Shape,object):
     #Makes attributes unchangable
     __slots__=('_radius')
@@ -8,6 +10,7 @@ class Circle(Shape,object):
     #constructor
     def __init__(self,radius):
         self._radius=radius
+        print(super().__init__(radius))
     #"_" before the attribute name means
     #it is a private attribute(but tehnically it is public)
 
@@ -45,7 +48,7 @@ print("Else __name__== 'oop_example' ")
 print("\n")
 
 c=Circle(4.0)
-
+print("",c.__init__(5.0))
 area=c.area()
 perimeter=c.perimeter()
 radius=c.radius
@@ -65,7 +68,7 @@ print("\n")
 
 print("Attributes of the instance:",c.__dict__)
 print("Methods of the class:",Circle.__dict__)
-print("Instance class's dict:",c.__class__)
+print("Instance class's dict:",c.__class__.__dict__)
 print("Method resolution order(class search order):",Circle.__mro__)
 print("Is c instance of the parent class Shape? ",isinstance(c, Shape))
 print("\n")
