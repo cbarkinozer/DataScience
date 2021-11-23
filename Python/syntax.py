@@ -328,7 +328,7 @@ def read_portfolio_dict(filename):
     portfolio=[]
     with open(filename) as f:
         rows=csv.reader(f)
-        cols=next(rows)
+        cols=next(rows) # next() returns the next item from the iterator
 
         for row in rows:
             stock={'name':row[0],'shares':int(row[1]),'price':float(row[2])}
@@ -339,7 +339,7 @@ def read_portfolio(filename):
     '''Read a stock portfolio file into a list'''
     portfolio=[]
     with open(filename) as f:
-        next(f) #Pass the header
+        next(f) #Pass the column names row
         for line in f:
             row=line.split(',')
             portfolio.append( ( row[0], int(row[1]), float(row[2]) ) )
