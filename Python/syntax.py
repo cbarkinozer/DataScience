@@ -78,12 +78,19 @@ with open('foo.txt','r') as f:
 print("\n")
 #Function
 def sum(a,b):
+    '''Sums input and returns''' #Doc String
     return a+b
 print(sum(1,2))#Calling a function
 #If you write no return, it will return None
 #If you write return with multiple elements
 #It will  return tuple
 
+#If a function is not static it has a single parameter called self
+#You do not give self as parameter but reaching the method
+#By instance is the self parameter
+
+#Global variables are variables outside a function(do not use as much as possible)
+#Local variables are variables inside a function code block
 
 print("\n")
 #Reading from url
@@ -235,8 +242,36 @@ if isinstance(c,(str,tuple)):
     print('c is a string or a tuple')
 #Type checking cause excessive code complexity
 
+print("\n")
+#Understanding assignment
 
-    
+def foo(items):
+ items.append(4)
+a = [1, 2, 3]
+print(a)
+foo(a)
+print("after foo items.append()",a)
+
+def bar(items):
+    items=[4,5,6]
+b=[1,2,3]
+print(b)
+bar(b)
+print("after reassigning inside function",b)
+#When you reassign inside a local variable
+#It does not change global variable
+
+
+print("\n")
+#Exceptions
+try:
+    print('Try block')
+except Exception as e:
+    print('Exception:',e)
+except (IOError,LookupError,RuntimeError) as e2:
+    print('Only for 3 error type',e2)
+finally:
+    print('Finally block')
 
 
 
