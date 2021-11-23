@@ -318,5 +318,46 @@ class My_class():
         pass
     def __delitem__(self,a):
         pass
+
+print("\n")
+#File reading example
+import csv
+
+def read_portfolio_dict(filename):
+    '''Read a portfolio csv file into a list of dict with keys as name,shares,price'''
+    portfolio=[]
+    with open(filename) as f:
+        rows=csv.reader(f)
+        cols=next(rows)
+
+        for row in rows:
+            stock={'name':row[0],'shares':int(row[1]),'price':float(row[2])}
+            portfolio.append(stock)
+    return portfolio
+
+def read_portfolio(filename):
+    '''Read a stock portfolio file into a list'''
+    portfolio=[]
+    with open(filename) as f:
+        next(f) #Pass the header
+        for line in f:
+            row=line.split(',')
+            portfolio.append( ( row[0], int(row[1]), float(row[2]) ) )
+        return portfolio
+
+portfolio_t= read_portfolio('portfolio.csv')
+portfolio_d=read_portfolio_dict('portfolio.csv')
+
+total_cost=0.0
+for s in portfolio_t:
+    total_cost += s[1] * s[2]
+
+print('Tuple total cost', total_cost)
+
+total_cost=0.0
+for s in portfolio_d:
+    total_cost += s['shares'] * s['price']
+
+print('Dict total cost', total_cost)
     
 #Check oop_example for further information
