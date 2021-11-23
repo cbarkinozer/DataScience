@@ -132,3 +132,112 @@ print(t[0])
 t2 = (t[0], 75, t[2]) #You can also create new one with other tuples values
 print(t2)
 
+
+a,b,c=t #Tuple unpacking
+#a,b=t #Numble of variables must match
+
+print('\n')
+#Dictionaries
+#Maps keys to values
+s = {
+ 'name': 'GOOG',
+ 'shares': 100,
+ 'price': 490.1
+}
+print(s['name'])
+s['date']='6/6/2007'
+#New value added because key not exists
+#If key exists it modifies
+s['price']=490.2
+del s['date'] #Deletes
+print(s)
+
+keys=s.keys()
+items= s.items()
+
+print('\n')
+#Sets
+#COllection of unordered unique items
+#Useful for duplicate elimination
+
+set1={'123','abc','xyz'}
+set2={'cat','fat'}
+set1.add('cat')
+set1.remove('123')
+print("union",set1|set2,"intersection", set1&set2,"difference", set1-set2)#Set operations
+
+
+print('\n')
+#Containers
+#Holds containers(Lists,Dicts,Sets)
+portfolio=[('a',1),('b',2),('c',3)] #Tuple inside a list
+print(portfolio[0])
+
+
+print('\n')
+#String formatting
+a='ibm'
+b=100
+c=91.1
+print(f'{a:>10s}{b:>10d}{c:>10f}')
+print('{:10s} {:10d} {:10.2f}'.format(a, b, c)
+)
+print('%5s %-5d%10f'%(a,b,c))
+
+
+for i, name in enumerate(names):
+    print(i,name)
+
+print("\n")
+points=[
+(1,4),(10,40),(23,14)
+]
+for x,y in points:
+    print(x,y)
+
+
+print('\n')
+#zip()
+
+cols=['a','b','c']
+rows=[1,2,3]
+pairs=zip(cols,rows)
+
+print('\n')
+#List comprehension(lambda functions)
+[print(i) for i in pairs]
+
+stocks={'price':101,'shares':51}
+a=[print(s) for s in stocks if stocks['price']>100 and stocks['shares']>50]
+
+print('\n')
+#Copying
+a=[1,2,3]
+b=a #They show the same place not a copy
+a.append(4)
+print(b)
+print("b=a:",a is b)#True(List is a pointer)
+
+b=list(a) #Makes a copy
+print("b=list(a):",a is b) #False (List is a copy)
+print(a[0] is b[0]) #True (values are pointer)
+
+import copy
+b=copy.deepcopy(a)#Only safe way of copying
+print("b=copy.deepcopy(a):",a is b) #False (list is copy)
+print(a[0] is b[0])#True? (isn't it supposed to be False)
+
+print('\n')
+#Type
+c='Hi World'
+print(type(c))
+if isinstance(c,(str,tuple)):
+    print('c is a string or a tuple')
+#Type checking cause excessive code complexity
+
+
+    
+
+
+
+#Check oop_example for further information
