@@ -273,6 +273,50 @@ except (IOError,LookupError,RuntimeError) as e2:
 finally:
     print('Finally block')
 
+print("\n")
+#Special methods
+class My_class():
 
+    #for math
+    def __add__(self,b):
+        pass
+    def __sub__(self,b):
+        pass
+    def __mul__(self,b):
+        pass
+    def __truediv__(self,b):
+        pass
+    def __floordiv__(self,b):
+        pass
+    def __mod__(self,b):
+        pass
+    def __lshift__(self,b):
+        pass
+    def __rshift__(self,b):
+        pass
+    def __and__(self,b):
+        pass
+    def __or__(self,b):
+        pass
+    def __xor__(self,b):
+        pass
+    def __pow__(self,b):
+        pass
+    def __neg__(self,b):
+        pass
+    def __invert__(self,b):
+        pass
+    def __abs__(self,b):
+        pass
 
+    #for item access
+    def __len__(self):
+        pass
+    def __getitem__(self,a):
+        pass
+    def __setitem__(self,a,v):
+        pass
+    def __delitem__(self,a):
+        pass
+    
 #Check oop_example for further information
