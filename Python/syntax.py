@@ -359,5 +359,26 @@ for s in portfolio_d:
     total_cost += s['shares'] * s['price']
 
 print('Dict total cost', total_cost)
+
+#Examples
+
+list_A=[1,2,3]
+list_B=list_A
+list_B.append(4)
+list_A.append(5)
+list_C=list(list_A)
+list_C.append(6)
+print(list_A,list_B,list_C) #[1, 2, 3, 4, 5] [1, 2, 3, 4, 5] [1, 2, 3, 4, 5, 6]
+
+#Create a list of dictionaries
+list=[]
+n=3
+for i in range(int(n)):
+    s={str(i+1):(i+1)*100}
+    list.append(s)
+
+print(list)#[{'1': 100}, {'2': 200}, {'3': 300}]
+
+
     
 #Check oop_example for further information
