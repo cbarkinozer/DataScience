@@ -20,29 +20,48 @@ sample
 
 five_number_stats<-sample %>%
   group_by(month,location) %>%
-  summarize(min=min(new_cases),Q1=quantile(new_cases,0.25,na.rm=TRUE),Q2=quantile(new_cases,0.50,na.rm=TRUE),Q3=quantile(new_cases,0.75,na.rm=TRUE),max=max(new_cases))
+  summarize(min=min(new_cases),Q1=quantile(new_cases,0.25,na.rm=TRUE),median=quantile(new_cases,0.50,na.rm=TRUE),Q3=quantile(new_cases,0.75,na.rm=TRUE),max=max(new_cases))
 
 five_number_stats
 
 #2_Find the highest daily cases and deaths separately for each country. 
 
-highest_deaths_and_daily_cases<-sample %>%
+second_result<-sample %>%
   group_by(location) %>%
   summarize(max_case=max(new_cases,na.rm=TRUE),max_deaths=max(new_deaths,na.rm=TRUE))
 
-highest_deaths_and_daily_cases
+second_result
 
 #3_Identify the month in which the mean daily cases is the highest for each country.
 
 #-UNFINISHED-
 
-#temp<-filter(sample,new_cases==max(mean(new_cases,na.rm=TRUE)))
-  
-month_with_highest_daily_cases<-sample %>%
-  group_by(location) %>%
-  summarize(Mean_of_dailycases=mean(new_cases,na.rm=TRUE))
 
-month_with_highest_daily_cases
+third_result1<-sample %>%
+  group_by() %>%
+  summarize(location,month,mean_of_dailycases=mean(new_cases,na.rm=TRUE))
+
+
+third_result2<-sample %>%
+  group_by(location) %>%
+  summarize(mean_of_dailycases=mean(new_cases,na.rm=TRUE))
+
+third_result1
+
+third_result1['mean_of_dailycases'] = df2['mean_of_dailycases'].values
+
+third_result1 %>%
+  add_column(mean_of_dailycases =third_result2$mean_of_dailycases )
+
+third_result1
+
+third_result<-as_tibble(third_result)
+
+third_result <- cbind(third_result1, Mean_of_dailycases = third_result2$Mean_of_dailycases)
+
+third_result
+
+
 #Select 3 country and plot the distribution of daily cases by month. Use location as clusters (i.e., color=location)
 #to show the difference between countries.
 
@@ -53,3 +72,4 @@ selected_months<-filter(sample,location ==c("Turkey","Germany","Russia") )
 
 ggplot(data=selected_months,mapping=aes(x=month,y=new_cases))+
   geom_point(mapping=aes(color=location))
+
