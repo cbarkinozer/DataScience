@@ -30,7 +30,7 @@ third_result
 
 #4_List the five longest word in your data
 
-fourth_result=tail(new_data[order(nchar(new_data))], 5)
+fourth_result<-tail(new_data[order(str_count(new_data,"."))], 5)
 fourth_result
 
 #5_Try to find word(s) which contain any of these words: age, any, day, exp, her, pro, the.
