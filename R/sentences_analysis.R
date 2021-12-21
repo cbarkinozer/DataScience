@@ -35,7 +35,7 @@ fourth_result
 
 #5_Try to find word(s) which contain any of these words: age, any, day, exp, her, pro, the.
 
-words<-c(" age "," any "," day "," exp "," her "," pro "," the ")
+words<-c("age","any","day","exp","her","pro","the")
 str_match<-str_c(new_data,collapse="|")
 has_str<-str_subset(sentences,str_match)
 str_extract(has_str,str_match)
