@@ -34,14 +34,6 @@ second_result
 
 #3_Identify the month in which the mean daily cases is the highest for each country.
 
-#-UNFINISHED-
-
-
-
-
-third_result1<-sample %>%
-  group_by() %>%
-  summarize(location,month,mean_of_dailycases=mean(new_cases,na.rm=TRUE))
 
 
 third_result2<-sample %>%
@@ -49,18 +41,16 @@ third_result2<-sample %>%
   summarize(mean_of_dailycases=mean(new_cases,na.rm=TRUE))
 
 
-third_result<-third_result1
-third_result<-select(third_result,-3)
+third_result<-third_result2
+
+third_result
 
 
 #Select 3 country and plot the distribution of daily cases by month. Use location as clusters (i.e., color=location)
 #to show the difference between countries.
 
-#-UNFINISHED-
+selected_locations<-filter(sample,location ==c("Turkey","Germany","Russia") )
 
-
-selected_months<-filter(sample,location ==c("Turkey","Germany","Russia") )
-
-ggplot(data=selected_months,mapping=aes(x=month,y=new_cases))+
-  geom_point(mapping=aes(color=location))
+ggplot(data=selected_locations,mapping=aes(x=month,y=new_cases,color=location))+
+  geom_smooth()
 
