@@ -49,8 +49,9 @@ third_result
 #Select 3 country and plot the distribution of daily cases by month. Use location as clusters (i.e., color=location)
 #to show the difference between countries.
 
-selected_locations<-filter(sample,location ==c("Turkey","Germany","Russia") )
+selected_locations<-filter(sample,location ==c("Turkey","Germany","Netherlands") )
 
-ggplot(data=selected_locations,mapping=aes(x=month,y=new_cases,color=location))+
-  geom_smooth()
+plot<-ggplot(data=selected_locations,mapping=aes(x=month,y=new_cases,color=location))+geom_smooth()
+
+plot+scale_x_discrete(limits=c(3,4,5,6,7,8,9,10,11,12))
 
