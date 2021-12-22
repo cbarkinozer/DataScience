@@ -36,19 +36,28 @@ second_result
 
 #-UNFINISHED-
 
+
+
 third_result1<-sample %>%
   group_by() %>%
   summarize(location,month,mean_of_dailycases=mean(new_cases,na.rm=TRUE))
+
+third_result
 
 third_result2<-sample %>%
   group_by(location) %>%
   summarize(mean_of_dailycases=mean(new_cases,na.rm=TRUE))
 
+third_result2
+
 third_result<-merge(x=third_result1,y=third_result2,by.x="location",by.y="location",all = T)
+
 
 third_result<-select(third_result,-3)
 
+
 third_result
+
 
 #Select 3 country and plot the distribution of daily cases by month. Use location as clusters (i.e., color=location)
 #to show the difference between countries.
