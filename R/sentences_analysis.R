@@ -19,7 +19,7 @@ new_data
 
 #2_Find words which are starting with “a” and ending with “e”.
 
-second_result<-str_view_all(new_data,"^a.*e$")
+second_result<-str_view_all(new_data,"^a.*e$",match=TRUE)
 
 second_result
 #3_Calculate the number of words which have more than 3 vowels.
