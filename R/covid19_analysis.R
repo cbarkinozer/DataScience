@@ -1,7 +1,7 @@
 
 library(tidyverse)
 
-ourdata<-read_csv2("D:/Desktop/covid-data-2020.csv") #Reading csv seperated by ";"
+ourdata<-read_csv2("C:/Users/barkin/Downloads/covid-data-2020.csv") #Reading csv seperated by ";"
 
 set.seed(2018556059) #Seeding for sampling
 
@@ -37,7 +37,7 @@ second_result
 
 
 third_result2<-sample %>%
-  group_by(location) %>%
+  group_by(location,month) %>%
   summarize(mean_of_dailycases=mean(new_cases,na.rm=TRUE))
 
 
@@ -54,4 +54,8 @@ selected_locations<-filter(sample,location ==c("Turkey","Germany","Netherlands")
 plot<-ggplot(data=selected_locations,mapping=aes(x=month,y=new_cases,color=location))+geom_smooth()
 
 plot+scale_x_discrete(limits=c(3,4,5,6,7,8,9,10,11,12))
+
+plot2<-ggplot(data=selected_locations,mapping=aes(x=month,y=new_cases,color=location))+geom_boxplot()
+
+plot2+scale_x_discrete(limits=c(3,4,5,6,7,8,9,10,11,12))
 
