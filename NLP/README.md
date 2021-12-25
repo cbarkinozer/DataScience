@@ -1,1 +1,1 @@
-My natural language processing projects on Turkish corpora.
+My natural language processing projects mostly on Turkish corpora.
