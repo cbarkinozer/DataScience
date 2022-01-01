@@ -1,4 +1,5 @@
 #NUMPY
+#Do not name this file numpy.py because it gives error :)
 import numpy as np
 
 #Creating an 1D array
@@ -181,3 +182,20 @@ print(a)
 b=a
 #a.resize((4,))
 #error cannot resize an array that has been  referenced
+
+a=np.array([[4,3,5],[1,2,1]])
+b=np.sort(a,axis=1)
+print(b)
+print(a.sort(axis=1))
+#Sorting with fancy indexing
+a=np.array([4,3,1,2])
+j=np.argsort(a)
+print(a[j])
+
+#Finding minima and maxima(a functions minimum and maximum vlaues)
+
+a=np.array([4,3,1,2])
+print(np.argmax(a),np.argmin(a))
+
+#Rounding
+b=np.round(a)
