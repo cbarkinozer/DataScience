@@ -146,7 +146,38 @@ y=np.array([[1,2,3],[5,6,1]])
 print(x.mean(),np.median(x),x.std(),np.median(y,axis=-1))#last axist)
 
 
+#Broadcasting
+#Basic operaitons in numpy are element-wise these works on arrays of the same s size
+#It’s also possible to do operations on arrays of different
+#sizes if NumPy can transform these arrays so that they all have the
+#same size:(boradasting)
 
 
+a=np.ones((4,5))
+a[0]=2
+print(a) #This is a bradcast of dimension 0 to 1
 
+#Adding a dimension with newaxis
+a=np.array([2,0,1,8])
+print(a.shape)
+print(a[np.newaxis,:])
+print(a.shape)
+print(a[:,np.newaxis])
+print(a.shape)
 
+a=np.array([[1,2,3],[4,5,6]])
+print(a.ravel()) #Flattening
+print(a.T)
+print(a.T.ravel())
+#Reshaping is the inverse operaiton of flattening
+b=a.reshape((2,3))
+
+#Size of an array can be changed with ndarray.size
+a=np.arange(4)
+a.resize((8,))
+print(a)
+
+#resize is not wirking if it is referred to somewhere else
+b=a
+#a.resize((4,))
+#error cannot resize an array that has been  referenced
