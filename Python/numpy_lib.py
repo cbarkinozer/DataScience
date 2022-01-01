@@ -199,3 +199,14 @@ print(np.argmax(a),np.argmin(a))
 
 #Rounding
 b=np.round(a)
+#note: float still be float after rounding
+print(np.array([1],dtype=int).dtype) #prints int32
+#[1 -- 3 --]
+
+#maskedarray
+x=np.ma.array([1,2,3,4],mask=[0,1,0,1])
+print(x)
+
+#Loading data files
+#data=np.loadtxt('data/population.txt')
+#np.savetxt('pop2.txt',data)
