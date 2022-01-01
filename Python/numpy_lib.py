@@ -52,3 +52,15 @@ x=np.array([[1,1],[2,2]])
 print(x.sum(axis=0))
 print(x.sum(axis=1))
 
+#Index slicing
+x=np.arange(10)
+print(x[0],x[9])
+print(x[0:9:2]) #Start,end,step
+print(x[:4])#Last index is not included because starts from 0
+a=np.array([[0,1,2,3,4,5],
+            [10,11,12,13,14,15],
+            [20,21,22,23,24,25],
+            [30,31,32,33,34,35],
+            [40,41,42,43,44,45],
+            [50,51,52,53,54,55]])
+print(a[0,3:5],a[4:,4:],a[:,2],a[2::2,::2])
