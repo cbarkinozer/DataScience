@@ -91,4 +91,62 @@ print(new_a)
 a[a%3==0]=-1 #You can also assing new value
 print(a)
 
+#Change values at these indexes
+a[[9,7]]=-100
+print(a)
+
+#Various fancy indexing applicaitons
+a=np.array([[0,1,2,3,4,5],
+            [10,11,12,13,14,15],
+            [20,21,22,23,24,25],
+            [30,31,32,33,34,35],
+            [40,41,42,43,44,45],
+            [50,51,52,53,54,55]])
+#These given values are python arrays
+#Other multiple values in paranthesis are tuples
+#Showing indexes
+print(a[(0,1,2,3,4),(1,2,3,4,5)],a[3:,[0,2,5]],a[np.array([1,0,1,0,0,1],dtype=bool),2])
+
+#Elementwise operations
+a=np.array([1,2,3,4])
+print(a+1,2**a)
+b=np.ones(4)+ 1
+print(a-b,a*b)
+
+#These operaitons are much faster than python implementaitons
+#Warning: array multiplicaiton is not matrix multiplicaiton
+
+c=np.ones((3,3))
+print(c*c) #array multiplicaiton
+print(c.dot(c)) #matrix multiplcaiton
+
+#Comparison
+print(a==b,a>b,np.array_equal(a,b))
+#Logical operators
+print(np.logical_or(a,b),np.logical_and(a,b))
+print(np.sin(a),np.log(a),np.exp(a))
+
+#To be able to do artihmetic operaitons shapes must match
+
+#Reductions
+x=np.array([1,3,2])
+#arg values gives index of the value
+print(x.min(),x.max(),x.argmin(),x.argmax())
+#You can use arg methods to get index and use it as a mask
+print(x[x.argmax()])
+
+#Logical operations can be used for array comparisons
+a=np.zeros((100,100))
+print(np.any(a!=0))
+print(np.all(a==a))
+
+#Statistic methods
+x=np.array([1,2,3,1])
+y=np.array([[1,2,3],[5,6,1]])
+print(x.mean(),np.median(x),x.std(),np.median(y,axis=-1))#last axist)
+
+
+
+
+
 
