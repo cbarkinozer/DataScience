@@ -64,3 +64,31 @@ a=np.array([[0,1,2,3,4,5],
             [40,41,42,43,44,45],
             [50,51,52,53,54,55]])
 print(a[0,3:5],a[4:,4:],a[:,2],a[2::2,::2])
+
+#You can also combine assignment and slicing
+a=np.arange(10)
+a[5:]=10
+print(a)
+b=np.arange(5)
+a[5:]=b[::-1]
+#At a after 5 to end copy from start to end reverse order
+print(a)
+
+#Slicing operaiton creates a view
+#When modifying view the original array is modified too
+
+print(np.may_share_memory(a,b))
+b[0]=12
+print(a) #a is also changed
+c=a[::2].copy() #Copys to other memory
+
+#Fancy indexing  masks and not creates views
+#So does not share memory
+
+a=np.random.randint(0,21,15)
+new_a=a[a%3==0] #Extract a sub-array with mask
+print(new_a)
+a[a%3==0]=-1 #You can also assing new value
+print(a)
+
+
