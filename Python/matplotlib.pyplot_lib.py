@@ -126,3 +126,45 @@ a=np.array([35,25,25,15])
 mylabels=["apples","bananas","cherries","dates"]
 plt.pie(a,labels=mylabels,startangle=90)
 plt.show()
+
+
+#There are also colormaps
+
+#Exercise1: plot sin and cos function of the range (-pi,pi)
+
+n=256
+X=np.linspace(-np.pi,np.pi,n)
+C,S,=np.cos(X),np.sin(X)
+plt.plot(X,C)
+plt.plot(X,S)
+plt.show()
+
+#With different color and linewidth
+n=256
+x=np.linspace(-np.pi,np.pi,n)
+sin=np.sin(x)
+cos=np.cos(x)
+
+plt.plot(x,sin,color='red',linewidth=3)
+plt.plot(x,cos,color='blue',linewidth=3)
+
+plt.show()
+
+#With given axes labels and ticks
+
+n=256
+x=np.linspace(-np.pi,np.pi,n)
+sin=np.sin(x)
+cos=np.cos(x)
+
+plt.plot(x,sin,color='red',linewidth=3)
+plt.plot(x,cos,color='blue',linewidth=3)
+
+plt.xlim(-4.0,4.0)
+plt.xticks(np.linspace(-4,4,9))
+
+plt.ylim(-1.0,1.0)
+plt.yticks(np.linspace(-1,1,5))
+
+plt.show()
+
