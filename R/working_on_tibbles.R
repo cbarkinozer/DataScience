@@ -14,6 +14,22 @@ read_csv("a,b,c
 1,2,3
 4,5,6")
 
+#Basic example
+#csv reading,manipulating columns and downloading csv back 
+
+library(tidyverse)
+
+data<-read_csv2("D:/Desktop/student-por.csv")
+
+data<-data %>% mutate( data , pass=if_else(G3>=12,true="yes",false = "no"))
+
+data<-select(data, -G1,-G2,-G3)
+
+write.csv(data, file = "D:/Desktop/student-por2.csv")
+
+
+
+
 # skip the first 2 line when reading from a file
 read_csv("The first line of metadata
 The second line of metadata
