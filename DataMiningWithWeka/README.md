@@ -130,14 +130,15 @@ The new attribute checks if the student’s score is over the character D (%60) 
 
 ## Comparing Datasets
 
-![Ekran Görüntüsü (242)](https://user-images.githubusercontent.com/43732258/147923614-866930cb-967d-4d39-8724-43f5f370971b.png)
+![Ekran Görüntüsü (248)](https://user-images.githubusercontent.com/43732258/147924035-2e4d3d9b-ddf1-482e-845f-85e38998eb3c.png)
 
 
 By data size, the Mushroom Dataset is a lot larger than Student Performance Dataset. Student Performance Dataset, on the other hand, has 8 more attributes than Mushroom Dataset. In contrast to the Mushroom Dataset, the Student Performance Dataset contains missing values; nonetheless, these missing values are insignificant in terms of the dataset. Both datasets are balanced in terms of class types.
 
 ## Comparing Algorithms Accuracy
 
-![Ekran Görüntüsü (243)](https://user-images.githubusercontent.com/43732258/147923597-a9f428c1-b2bb-44d8-8365-6001fc2ee0ce.png)
+![Ekran Görüntüsü (247)](https://user-images.githubusercontent.com/43732258/147924018-af18bee8-e19f-4016-b671-b4c6f2a85068.png)
+
 
 
 Since both datasets are balanced, we can be sure of their accuracy. If they weren't balanced, we could look at the F-measure, which is the harmonic mean of Precision and Recall. Alternatively, you can use a weighted f-measure to balance the weight between Precision and Recall.
@@ -150,7 +151,8 @@ Because J48 is a decision tree classifier, it performed second best on the Stude
 Because it is a rule-based classifier, OneR performs similarly but slightly worse than the J48. Decision trees are quite similar to rule-based classifiers (you can also convert trees to rules). Rule-based classifiers provide rules that classify data, and these rules are much easier for people to understand but perform worse (larger the tree, it gets harder to understand by humans). </br>
 
 ## Comparing Model Build Time
-![Ekran Görüntüsü (244)](https://user-images.githubusercontent.com/43732258/147923567-2a4c9476-16df-4ce8-8fea-857c2eade6e0.png)
+![Ekran Görüntüsü (246)](https://user-images.githubusercontent.com/43732258/147924002-9e7e78e2-649a-44f2-90e8-2a8c41051faf.png)
+
 The IBK algorithm is a lazy learner algorithm that does not require model development (it stores training data), which explains why creating the model for both datasets takes zero seconds. </br>
 Bayesian classifiers have high speed on huge datasets. As a result, Nave Bayes performs second fastest on the mushroom dataset.
 However, Nave Bayes performs significantly worse on the Students Performance Dataset because, while being smaller, it contains more attributes. .</br>
