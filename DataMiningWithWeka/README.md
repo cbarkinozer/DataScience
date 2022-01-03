@@ -1,5 +1,7 @@
 # DataMiningWithWeka
 
+Markdown version of my report. You can find full analyze on "DataMiningReport.docx" .
+
 ## Abstract
 In this article, two distinct datasets were chosen based on data size, number of features, and missing values.
 These datasets were trained using four distinct types of algorithms, and the accuracy, model build times, and causes of the results were examined.
@@ -116,10 +118,43 @@ Try to find out the issues with the Students as they are future Personalities, t
 29 .health - current health status (numeric: from 1 - very bad to 5 - very good)
 30. absences - number of school absences (numeric: from 0 to 93)
 
-These grades are related with the course subject,Porteguese:
-31. G1 - first period grade (numeric: from 0 to 20)
-32. G2 - second period grade (numeric: from 0 to 20)
-33. G3 - final grade (numeric: from 0 to 20, output target)
+These grades are related with the course subject,Porteguese: </br>
+31. G1 - first period grade (numeric: from 0 to 20)  </br>
+32. G2 - second period grade (numeric: from 0 to 20) </br>
+33. G3 - final grade (numeric: from 0 to 20, output target) </br>
 </br> **The 31,32,33th attributes got deleted and a new 31th attribute (pass) is created by using the 33th attribute G3(final score).
 The new attribute checks if the student’s score is over the character D (%60) in this situation over 12/20.** </br>
-35. pass-student’s passing the class(binary: yes or no)
+35. pass-student’s passing the class(binary: yes or no) </br>
+
+# CONCLUSION
+
+## Comparing Datasets
+By data size, the Mushroom Dataset is a lot larger than Student Performance Dataset. Student Performance Dataset, on the other hand, has 8 more attributes than Mushroom Dataset. In contrast to the Mushroom Dataset, the Student Performance Dataset contains missing values; nonetheless, these missing values are insignificant in terms of the dataset. Both datasets are balanced in terms of class types.
+
+## Comparing Algorithms Accuracy
+Since both datasets are balanced, we can be sure of their accuracy. If they weren't balanced, we could look at the F-measure, which is the harmonic mean of Precision and Recall. Alternatively, you can use a weighted f-measure to balance the weight between Precision and Recall.
+
+
+J48 and IBK are the two highest scoring algorithms in the Mushroom Dataset, both with 100 percent accuracy. Normally, 100 % accuracy indicates overfitting (the model memorizes values), which is undesirable, but when stratified cross-validation is applied, it is fair to believe that these methods work perfectly and do not overfit. </br>
+The best algorithm for the Students Performance Dataset is Nave Bayes.</br>
+J48, IBK, and OneR follow Naïve Bayes with similar scores among themselves.
+The reason why Nave Bayes scored best on the Student's Performance Dataset and lowest on the Mushroom Dataset is that Bayesian classifiers perform better on larger datasets. However, naive Bayes assumes that attributes are independent, and if they are dependent, the model's accuracy drops. There are more attributes in the Student's Performance Dataset, and these attributes are mainly independent (except income-related attributes, they are dependent). However, it is safe to presume that the features of the Mushroom Dataset are much more closely related (gill related and stalk related multiple attributes exist). </br>
+Because J48 is a decision tree classifier, it performed second best on the Students Performance Dataset. With smaller datasets, decision trees perform better. Decision trees also outperform other models when it comes to categorical values. Whereas other models cannot detect patterns between categorical values, decision trees can. .</br>
+Because it is a rule-based classifier, OneR performs similarly but slightly worse than the J48. Decision trees are quite similar to rule-based classifiers (you can also convert trees to rules). Rule-based classifiers provide rules that classify data, and these rules are much easier for people to understand but perform worse (larger the tree, it gets harder to understand by humans). </br>
+
+## Comparing Model Build Time
+The IBK algorithm is a lazy learner algorithm that does not require model development (it stores training data), which explains why creating the model for both datasets takes zero seconds. </br>
+Bayesian classifiers have high speed on huge datasets. As a result, Nave Bayes performs second fastest on the mushroom dataset.
+However, Nave Bayes performs significantly worse on the Students Performance Dataset because, while being smaller, it contains more attributes. .</br>
+The Mushroom Dataset is large,and J48 and OneR both have the same build time, but for students performance dataset (which is a smaller dataset), OneR is clearly faster. Which makes sense because we know it is less accurate in comparison to J48 from the "Comparing Accuracy Algorithms Accuracy" table. .</br>
+
+
+# REFERENCES
+[1]UCI Machine Learning,(2017), Mushroom Classification
+[https://www.kaggle.com/uciml/mushroom-classification]
+[2]Bala Vashan,(Last Update 31,12,2021),Students Performance Dataset
+[https://www.kaggle.com/balavashan/students-performance-dataset?select=student-por.csv]
+[3]renatopp,(20 December 2012), arff-datasets
+[https://github.com/renatopp/arff-datasets/tree/master/classification]
+[4]Weka wiki,(view 2 January 2022), weka-wiki
+[https://waikato.github.io/weka-wiki]
