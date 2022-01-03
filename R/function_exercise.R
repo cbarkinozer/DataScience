@@ -36,13 +36,18 @@ is.prime <- function(prime_vector) {
       prime<-c(prime,x)
     } else {
       non_prime<-c(non_prime,x)
-      non_prime<-c(non_prime,divider)
+      for(j in 1:2){
+        non_prime<-c(non_prime,paste("[",divider,"]"))
+        divider<-x/divider
+      }
+      
     }
-  
+    
   }
-print(paste("Prime numbers :", prime))
-print("Non-prime numbers: ")
-print(non_prime)
+  print("Prime numbers: ")
+  print(prime)
+  print("Non-prime numbers: ")
+  print(non_prime)
 } 
 
 is.prime(prime_vector)
