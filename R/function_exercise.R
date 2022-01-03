@@ -10,7 +10,8 @@ set.seed(2018556059)
 #Your result will be Prime numbers : 89 107
 #Non-prime numbers : 597 [3 199]  931 [7 7 19] 1083 [3 19 19]
 
-prime_vector<-c(89, 107, 597, 931, 1083)
+prime_vector<-c(89,107,597,931,1083)
+
 
 flag = 0
 is.prime <- function(prime_vector) {
@@ -36,22 +37,28 @@ is.prime <- function(prime_vector) {
       prime<-c(prime,x)
     } else {
       non_prime<-c(non_prime,x)
-      for(j in 1:2){
+      previous=x
+      while((previous %% divider)==0){
         non_prime<-c(non_prime,paste("[",divider,"]"))
+        previous=divider
         divider<-x/divider
+        non_prime<-c(non_prime,paste("[",divider,"]"))
       }
       
     }
     
   }
-  print("Prime numbers: ")
+  print("Prime numbers:")
   print(prime)
-  print("Non-prime numbers: ")
+  print("Non-prime numbers:")
   print(non_prime)
 } 
 
 is.prime(prime_vector)
-
+#"Prime numbers:"
+#89 107
+#"Non-prime numbers:"
+#"597"     "[ 3 ]"   "[ 199 ]" "931"     "[ 7 ]"   "[ 133 ]" "1083"    "[ 3 ]"   "[ 361 ]"
 
 #2. Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters.
 #Sort the words containing the same number of letters alphabetically. For having text, you may use Sentences in tidyverse.
