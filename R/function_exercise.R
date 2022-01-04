@@ -36,13 +36,9 @@ is.prime <- function(prime_vector) {
       prime<-c(prime,x)       #Add to prime
     } else {                  #Else flag is 0
       non_prime<-c(non_prime,x)  #Add to non_prime. Now add it's dividers.
-      previous=x                 #Previous as number
-      while((previous %% divider)==0){    #Check if previous divider is dividable to divider.
-        non_prime<-c(non_prime,paste("[",divider,"]"))
-        previous=divider                               #Save divider as previous
-        divider<-x/divider                             #new divider is number/divider
-        non_prime<-c(non_prime,paste("[",divider,"]")) 
-      }
+      non_prime<-c(non_prime,paste("[",divider,"]"))
+      divider<-x/divider
+      non_prime<-c(non_prime,paste("[",divider,"]")) 
       
     }
     
