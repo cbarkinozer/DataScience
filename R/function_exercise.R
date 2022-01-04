@@ -55,18 +55,18 @@ is.prime <- function(prime_vector) {
 } 
 
 is.prime(prime_vector)
-#"Prime numbers:"
-#89 107
-#"Non-prime numbers:"
-#"597"     "[ 3 ]"   "[ 199 ]" "931"     "[ 7 ]"   "[ 133 ]" "1083"    "[ 3 ]"   "[ 361 ]"
 
 #2. Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters.
 #Sort the words containing the same number of letters alphabetically. For having text, you may use Sentences in tidyverse.
 #Select 5 or 6 sentences randomly from Sentences. For example, you have these sentences. 
-#[1] "We find joy in the simplest things. He wrote down a long list of items.
-#The hail pattered on the burnt brown grass.
-#Screen the porch with woven straw mats.
-#The theft of the pearl pin was kept secret.
-#Sweet words work better than fierce."
-#Your function should return the result like this
-# [1] "a he in of of on we joy pin the the the the the the was down find hail kept list long mats than with work brown burnt grass items pearl porch straw sweet theft words woven wrote better fierce screen secret things pattered simplest"
+
+library(tidyverse)
+library(stringr)
+sentence<-stringr::sentences
+sentence
+
+sample<-sentence[sample(nchar(sentence), 5)]
+
+
+
+
