@@ -12,14 +12,11 @@ set.seed(2018556059)
 #Non-prime numbers : 597 [3 199]  931 [7 7 19] 1083 [3 19 19]
 
 prime_vector<-c(89,107,597,931,1083)
-
-
 flag = 0
 is.prime <- function(prime_vector) {
   
-  prime<-cat("Prime numbers :")
-  non_prime<-cat("Non-rime numbers :")
-  
+  prime<-vector()
+  non_prime<-vector()
   
   divider<-0
   for(x in prime_vector ){
@@ -34,34 +31,30 @@ is.prime <- function(prime_vector) {
         }
       }
     } 
-    
     if(x == 2){flag = 1}
-    
     if(flag == 1) {
-      prime<-cat(paste(x," "))
-    
-      }else {
-      
-      non_prime<-cat(paste(x," "))
-      
+      prime<-c(prime,x)
+    } else {
+      non_prime<-c(non_prime,x)
       previous=x
-      
       while((previous %% divider)==0){
-        non_prime<-cat(paste("[",divider,"]"))
+        non_prime<-c(non_prime,paste("[",divider,"]"))
         previous=divider
         divider<-x/divider
-        non_prime<-cat(paste("[",divider,"]"," "))
+        non_prime<-c(non_prime,paste("[",divider,"]"))
       }
       
     }
     
   }
-  #Print
-  prime
-  non_prime
-} 
-
+  print("Prime numbers:")
+  print(prime)
+  print("Non-prime numbers:")
+  print(non_prime)
+}
 is.prime(prime_vector)
+
+
 
 #2.
 #Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters.
@@ -83,10 +76,12 @@ sentence.sort<-function(x){
     sorted<-x[order(str_count(x,"."))] #Order by word length
     for(i in sorted){
       result<-cat(paste(i," ")) #Concatinate word vector to a single string
-      }
+    }
+    result<-str_replace(result, "NULL","") #Deleting the last NULL
     result #print result
 }
 
 sentence.sort(sample)
-#in  in  is  in  the  off  his  hop  the  and  the  the  hot  sun  the  was  the  joy  wipe  face  over  wide  road
-#meal  bell  rang  what  dirty  fence  there  grease  plunge  cooked  before  living  shimmered  NULL
+
+#a  go  in  of  the  was  the  the  you  out  the  the  the  the  gas  meal  bell  rang  mend  coat  king  days  mesh
+#mire  note  size  tank  ruled  state  early  keeps  cooked  before  before  chicks  inside  closely  character(0)
