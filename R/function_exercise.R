@@ -19,29 +19,29 @@ is.prime <- function(prime_vector) {
   non_prime<-vector()
   
   divider<-0
-  for(x in prime_vector ){
+  for(x in prime_vector ){ #For every number in vector
     
     if(x > 1) {
       flag = 1
-      for(i in 2:(x-1)) {
-        if ((x %% i) == 0) {
-          flag = 0
-          divider=i
+      for(i in 2:(x-1)) { # i from 2 to last number
+        if ((x %% i) == 0) { #Check if i can divide number
+          flag = 0           #Flag set to 0
+          divider=i          #Divider saved
           break
         }
       }
     } 
-    if(x == 2){flag = 1}
-    if(flag == 1) {
-      prime<-c(prime,x)
-    } else {
-      non_prime<-c(non_prime,x)
-      previous=x
-      while((previous %% divider)==0){
+    if(x == 2){flag = 1}      #If number is 2, it is prime
+    if(flag == 1) {           #If flag is 1, it is prime
+      prime<-c(prime,x)       #Add to prime
+    } else {                  #Else flag is 0
+      non_prime<-c(non_prime,x)  #Add to non_prime. Now add it's dividers.
+      previous=x                 #Previous as number
+      while((previous %% divider)==0){    #Check if previous divider is dividable to divider.
         non_prime<-c(non_prime,paste("[",divider,"]"))
-        previous=divider
-        divider<-x/divider
-        non_prime<-c(non_prime,paste("[",divider,"]"))
+        previous=divider                               #Save divider as previous
+        divider<-x/divider                             #new divider is number/divider
+        non_prime<-c(non_prime,paste("[",divider,"]")) 
       }
       
     }
