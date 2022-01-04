@@ -54,6 +54,12 @@ is.prime <- function(prime_vector) {
 }
 is.prime(prime_vector)
 
+#[1] "Prime numbers:"
+#[1]  89 107
+#[1] "Non-prime numbers:"
+#[1] "597"     "[ 3 ]"   "[ 199 ]" "931"     "[ 7 ]"   "[ 133 ]" "1083"    "[ 3 ]"   "[ 361 ]"
+
+
 
 
 #2.
