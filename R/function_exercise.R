@@ -64,27 +64,19 @@ library(stringr)
 sentence<-stringr::sentences
 sentence
 
-sample<-sentence[sample(nchar(sentence), 5)]
+sample<-sentence[sample(nchar(sentence), 5)] #Sampling 5 sentences
 sample_words<-vector()
-sample<-c(sample_words,unlist(strsplit(gsub("\\.","",sample)," "))) #Add word
-
-print(sample)
+sample<-c(sample_words,unlist(strsplit(gsub("\\.","",sample)," "))) #Add words from sentences
 
 sentence.sort<-function(x){
-  
-  for(sen in x ){
-    sen[order(str_length(word), word)]
-  }
+    x<-tolower(x) #Lower the words
+    sorted<-str_sort(x, locale="eng") #Sort alphabetically
+    sorted<-x[order(str_count(x,"."))] #Order by word length
+    for(i in sorted){
+      result<-cat(paste(i," ")) #Concatinate word vector to a single string
+      }
+    print(result)
 }
 
-
-
-
 sentence.sort(sample)
-
-
-
-
-
-
 
