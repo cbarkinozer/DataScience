@@ -1,6 +1,7 @@
 set.seed(2018556059)
 
-#1.Write a function that finds a prime number(s) given a set of numbers.
+#1.
+#Write a function that finds a prime number(s) given a set of numbers.
 #Your function also provides prime factors of non-prime numbers.
 #The function you will write should return the prime number(s) given in this vector and
 #the non-prime number(s) with their prime factors.
@@ -16,8 +17,9 @@ prime_vector<-c(89,107,597,931,1083)
 flag = 0
 is.prime <- function(prime_vector) {
   
-  prime<-vector()
-  non_prime<-vector()
+  prime<-cat("Prime numbers :")
+  non_prime<-cat("Non-rime numbers :")
+  
   
   divider<-0
   for(x in prime_vector ){
@@ -32,33 +34,40 @@ is.prime <- function(prime_vector) {
         }
       }
     } 
+    
     if(x == 2){flag = 1}
+    
     if(flag == 1) {
-      prime<-c(prime,x)
-    } else {
-      non_prime<-c(non_prime,x)
+      prime<-cat(paste(x," "))
+    
+      }else {
+      
+      non_prime<-cat(paste(x," "))
+      
       previous=x
+      
       while((previous %% divider)==0){
-        non_prime<-c(non_prime,paste("[",divider,"]"))
+        non_prime<-cat(paste("[",divider,"]"))
         previous=divider
         divider<-x/divider
-        non_prime<-c(non_prime,paste("[",divider,"]"))
+        non_prime<-cat(paste("[",divider,"]"," "))
       }
       
     }
     
   }
-  print("Prime numbers:")
-  print(prime)
-  print("Non-prime numbers:")
-  print(non_prime)
+  #Print
+  prime
+  non_prime
 } 
 
 is.prime(prime_vector)
 
-#2. Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters.
+#2.
+#Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters.
 #Sort the words containing the same number of letters alphabetically. For having text, you may use Sentences in tidyverse.
-#Select 5 or 6 sentences randomly from Sentences. For example, you have these sentences. 
+#Select 5 or 6 sentences randomly from Sentences. 
+
 library(tidyverse)
 library(stringr)
 sentence<-stringr::sentences
@@ -75,8 +84,9 @@ sentence.sort<-function(x){
     for(i in sorted){
       result<-cat(paste(i," ")) #Concatinate word vector to a single string
       }
-    print(result)
+    result #print result
 }
 
 sentence.sort(sample)
-
+#in  in  is  in  the  off  his  hop  the  and  the  the  hot  sun  the  was  the  joy  wipe  face  over  wide  road
+#meal  bell  rang  what  dirty  fence  there  grease  plunge  cooked  before  living  shimmered  NULL
