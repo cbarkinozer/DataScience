@@ -59,13 +59,31 @@ is.prime(prime_vector)
 #2. Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters.
 #Sort the words containing the same number of letters alphabetically. For having text, you may use Sentences in tidyverse.
 #Select 5 or 6 sentences randomly from Sentences. For example, you have these sentences. 
-
 library(tidyverse)
 library(stringr)
 sentence<-stringr::sentences
 sentence
 
 sample<-sentence[sample(nchar(sentence), 5)]
+sample_words<-vector()
+sample<-c(sample_words,unlist(strsplit(gsub("\\.","",sample)," "))) #Add word
+
+print(sample)
+
+sentence.sort<-function(x){
+  
+  for(sen in x ){
+    sen[order(str_length(word), word)]
+  }
+}
+
+
+
+
+sentence.sort(sample)
+
+
+
 
 
 
