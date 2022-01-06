@@ -66,7 +66,6 @@ is.prime(prime_vector)
 library(tidyverse)
 library(stringr)
 sentence<-stringr::sentences
-sentence
 
 sample<-sentence[sample(nchar(sentence), 5)] #Sampling 5 sentences
 sample_words<-vector()
@@ -76,14 +75,10 @@ sentence.sort<-function(x){
     x<-tolower(x) #Lower the words
     sorted<-str_sort(x, locale="eng") #Sort alphabetically
     sorted<-x[order(str_count(x,"."))] #Order by word length
-    for(i in sorted){
-      result<-cat(paste(i," ")) #Concatinate word vector to a single string
-    }
-    result<-str_replace(result, "NULL","") #Deleting the last NULL
-    result #print result
+    return(paste(sorted, collapse = " ")) #Concatenate every word separated by " "
 }
 
-sentence.sort(sample)
+print(sentence.sort(sample))
 
-#a  go  in  of  the  was  the  the  you  out  the  the  the  the  gas  meal  bell  rang  mend  coat  king  days  mesh
-#mire  note  size  tank  ruled  state  early  keeps  cooked  before  before  chicks  inside  closely  character(0)
+#[1] "no the was the the was and the him the the the meal bell rang hung limp girl gave kept home week lift over wrist 
+#badly young clear third stone fence cooked before square strained response sickness"
