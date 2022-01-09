@@ -1,0 +1,78 @@
+---
+title: "Assignment-3"
+author: "Cahit Barkın Özer"
+date: "09 01 2022"
+output: word_document
+---
+****
+1.Write a function that finds a prime number(s) given a set of numbers. \
+Your function also provides prime factors of non-prime numbers. \
+For example you have a vector of numbers like (89, 107, 597, 931, 1083). \
+Your result will be Prime numbers : 89 107 Non-prime numbers : 597 [3 199]  931 [7 7 19] 1083 [3 19 19] \
+```{r include=FALSE}
+library(tidyverse)
+```
+```{r}
+prime<-vector()
+non_prime<-vector()
+flag = 0
+is.prime <- function(prime_vector) {
+  divider<-0
+  for(x in prime_vector ){ #For every number in vector
+    if(x > 1) {
+      flag = 1
+      for(i in 2:(x-1)) { # i from 2 to last number
+        if ((x %% i) == 0) { #Check if i can divide number
+          flag = 0           #Flag set to 0
+          divider=i          #Divider saved
+          break
+        }}} 
+    if(x == 2){flag = 1}      #If number is 2, it is prime
+    if(flag == 1) {           #If flag is 1, it is prime
+      prime<-c(prime,x)       #Add to prime
+    } else {                  #Else flag is 0
+      non_prime<-c(non_prime,x)  #Add to non_prime. Now add it's dividers.
+      non_prime<-c(non_prime,paste("[",divider,"]"))
+      divider<-x/divider
+      non_prime<-c(non_prime,paste("[",divider,"]")) 
+    }}
+  #print(c("Prime numbers:",prime,"\n Non-prime numbers:",non_prime))
+  print(paste(c("Prime numbers:",prime,"\n Non-prime numbers:",non_prime), collapse=" "))
+  }
+```
+```{r include=FALSE}
+prime_vector<-c(89,107,597,931,1083)
+result<- is.prime(prime_vector)
+```
+Result for the vector (89, 107, 597, 931, 1083): \
+"`r result`" \
+
+2.Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters. \
+Sort the words containing the same number of letters alphabetically. For having text, you may use Sentences in tidyverse. \
+Select 5 or 6 sentences randomly from Sentences. \
+
+```{r include=FALSE}
+library(tidyverse)
+library(stringr)
+set.seed(2018556059)
+sentence<-stringr::sentences
+```
+
+```{r}
+main_sample<-sentence[sample(nchar(sentence), 5)] #Sampling 5 sentences
+sample_words<-vector()
+sample<-c(sample_words,unlist(strsplit(gsub("\\.","",main_sample)," "))) #Add words from sentences
+
+sentence.sort<-function(x){
+    x<-tolower(x) #Lower the words
+    sorted<-str_sort(x, locale="eng") #Sort alphabetically
+    sorted<-x[order(str_count(x,"."))] #Order by word length
+    return(paste(sorted, collapse = " ")) #Concatenate every word separated by " "
+}
+```
+
+My sentences are: \
+"`r main_sample`" \
+\
+My function return the result: \
+"`r sentence.sort(sample)`" \

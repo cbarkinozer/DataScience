@@ -1,0 +1,126 @@
+---
+title: "Assignment-2"
+author: "Cahit Barkın Özer"
+date: "09 01 2022"
+output: word_document
+---
+****
+```{r setup, include=FALSE} 
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) #Turning off R markdown warning and messages
+```
+Save the attached file (covid-data-2020) as an Excel file (.csv, .xls or .xlsx format), then import this data to R. \
+(You can supply an inline CSV file instead of importing, if you like).
+
+Take a random sample of 1000 observations from this data (you can use sample() function), and save this sample as a new data. \
+Answer the following questions using this sample. \
+
+Part 1 \
+
+```{r,include=FALSE}
+library(tidyverse)
+library(knitr)
+ourdata<-read_csv2("C:/Users/barkin/Downloads/covid-data-2020.csv") #Reading csv seperated by ";"
+set.seed(2018556059) #Seeding for sampling
+sample<-ourdata[sample(nrow(ourdata), 1000, replace = FALSE, prob = NULL),] #Sampling
+#Filtering negative values in new_case and new_deaths
+sample<-filter(sample,new_cases>=0,new_deaths>=0)
+```
+1.Calculate the five-number summary statistics (minimum-Q1-median-Q3-maximum) of covid-19 daily new cases for each country within each month. (you can use quantile() function to get the quartiles) \
+
+```{r echo=FALSE}
+five_number_stats<-sample %>%
+  group_by(month,location) %>%
+  summarize(min=min(new_cases),Q1=quantile(new_cases,0.25,na.rm=TRUE),median=quantile(new_cases,0.50,na.rm=TRUE),Q3=quantile(new_cases,0.75,na.rm=TRUE),max=max(new_cases))
+
+kable(head(five_number_stats,10)) #Truncated to only first 10 values
+```
+Results are truncated to only first 10 values
+\
+2.Find the highest daily cases and deaths separately for each country. \
+```{r echo=FALSE}
+second_result<-sample %>%
+  group_by(location) %>%
+  summarize(max_case=max(new_cases,na.rm=TRUE),max_deaths=max(new_deaths,na.rm=TRUE))
+
+kable(second_result)
+```
+
+3.Identify the month in which the mean daily cases is the highest for each country. \
+
+```{r echo=FALSE}
+third_result2<-sample %>%
+  group_by(location,month) %>%
+  summarize(mean_of_dailycases=mean(new_cases,na.rm=TRUE))
+
+
+third_result<-third_result2
+
+kable(head(third_result,10)) #Truncated to only first 10 values
+```
+Results are truncated to only first 10 values
+\
+4.Select 3 country and plot the distribution of daily cases by month. \
+Use location as clusters (i.e., color=location) to show the difference between countries.\
+```{r echo=FALSE}
+selected_locations<-filter(sample,location ==c("Turkey","Germany","Netherlands") )
+
+plot<-ggplot(data=selected_locations,mapping=aes(x=month,y=new_cases,color=location))+geom_smooth()
+
+plot+scale_x_discrete(limits=c(3,4,5,6,7,8,9,10,11,12))
+
+plot2<-ggplot(data=selected_locations,mapping=aes(x=month,y=new_cases,color=location))+geom_boxplot()
+
+plot2+scale_x_discrete(limits=c(3,4,5,6,7,8,9,10,11,12))
+```
+
+\
+\
+\
+
+Part 2 \
+Answer the following questions by using the sentences, which are provided in stringr::sentences. \
+```{r include=FALSE}
+library(stringr)
+sentence<-stringr::sentences
+```
+
+1.Take a random sample of 100 sentences from this data, then split these sentences into words and take each word as a member of a vector. \
+After removing duplicated words (you can use unique() function to remove duplicated words), save this sample as a new data. With this new data, provide the answers for. \
+```{r echo=FALSE}
+sample<-sentence[sample(nchar(sentence), 100)] #Sampling
+new_data<-unlist(strsplit(gsub("\\.","",sample)," ")) #Split by words
+new_data<-unique(new_data)
+kable(head(new_data,10)) #Results are truncated to only first 10 values
+```
+\
+Results are truncated to only first 10 values
+\
+2.Find words which are starting with “a” and ending with “e”.
+```{r}
+second_result<-new_data[str_detect(new_data, "^a.*e$")]
+```
+Words that starts with a and ends with e (there are none) : "`r second_result`" \
+\
+3.Calculate the number of words which have more than 3 vowels.
+```{r}
+third_result<-new_data[str_count(new_data,"[aeiou]")>3]
+third_result<-length(third_result)
+```
+\
+The number of words that have mor ethan 3 vowels: "`r third_result``" \
+\
+4.List the five longest word in your data.
+```{r}
+fourth_result<-tail(new_data[order(str_count(new_data,"."))], 5)
+```
+The five longest word: "`r fourth_result``" \
+\
+5.Try to find word(s) which contain any of these words: age, any, day, exp, her, pro, the. \
+```{r}
+words<-c("age","any","day","exp","her","pro","the")
+str_match<-str_c(words,collapse="|") #Concat strings
+has_str<-str_subset(new_data,str_match)
+fifth_result<-has_str
+```
+Words that are found: "`r fifth_result``" \
+
