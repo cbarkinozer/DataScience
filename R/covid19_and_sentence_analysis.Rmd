@@ -36,15 +36,17 @@ kable(head(five_number_stats,10)) #Truncated to only first 10 values
 ```
 Results are truncated to only first 10 values
 \
-2.Find the highest daily cases and deaths separately for each country. \
+\
+2.Find the highest daily cases and deaths separately for each country.
 ```{r echo=FALSE}
 second_result<-sample %>%
   group_by(location) %>%
   summarize(max_case=max(new_cases,na.rm=TRUE),max_deaths=max(new_deaths,na.rm=TRUE))
 
-kable(second_result)
+kable(head(second_result,10)) #Truncated to only first 10 values
 ```
-
+Results are truncated to only first 10 values
+\
 3.Identify the month in which the mean daily cases is the highest for each country. \
 
 ```{r echo=FALSE}
@@ -52,9 +54,8 @@ third_result2<-sample %>%
   group_by(location,month) %>%
   summarize(mean_of_dailycases=mean(new_cases,na.rm=TRUE))
 
-
 third_result<-third_result2
-
+third_result<-filter(third_result,mean_of_dailycases==max(mean_of_dailycases))
 kable(head(third_result,10)) #Truncated to only first 10 values
 ```
 Results are truncated to only first 10 values
@@ -133,3 +134,4 @@ has_str<-str_subset(new_data,str_match)
 fifth_result<-has_str
 ```
 Words that are found: "`r fifth_result`" \
+
