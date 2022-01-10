@@ -37,6 +37,10 @@ kable(head(five_number_stats,10)) #Truncated to only first 10 values
 Results are truncated to only first 10 values
 \
 \
+\
+\
+\
+\
 2.Find the highest daily cases and deaths separately for each country.
 ```{r echo=FALSE}
 second_result<-sample %>%
@@ -59,6 +63,16 @@ third_result<-filter(third_result,mean_of_dailycases==max(mean_of_dailycases))
 kable(head(third_result,10)) #Truncated to only first 10 values
 ```
 Results are truncated to only first 10 values
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
 \
 4.Select 3 country and plot the distribution of daily cases by month. \
 Use location as clusters (i.e., color=location) to show the difference between countries.\
@@ -87,7 +101,7 @@ sentence<-stringr::sentences
 ```
 
 1.Take a random sample of 100 sentences from this data, then split these sentences into words and take each word as a member of a vector. \
-After removing duplicated words (you can use unique() function to remove duplicated words), save this sample as a new data. With this new data, provide the answers for. \
+After removing duplicated words (you can use unique() function to remove duplicated words), save this sample as a new data. With this new data, provide the answers for.
 ```{r echo=FALSE}
 sample <- sentence[sample(length(sentence), 100)]#Sampling 100 sentences
 sample <- str_replace(sample, "\\.", "")  #Deleting "." in the sentences
