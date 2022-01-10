@@ -81,15 +81,25 @@ Part 2 \
 Answer the following questions by using the sentences, which are provided in stringr::sentences. \
 ```{r include=FALSE}
 library(stringr)
+set.seed(2018556059) #Seeding for sampling
 sentence<-stringr::sentences
 ```
 
 1.Take a random sample of 100 sentences from this data, then split these sentences into words and take each word as a member of a vector. \
 After removing duplicated words (you can use unique() function to remove duplicated words), save this sample as a new data. With this new data, provide the answers for. \
 ```{r echo=FALSE}
-sample<-sentence[sample(nchar(sentence), 100)] #Sampling
-new_data<-unlist(strsplit(gsub("\\.","",sample)," ")) #Split by words
-new_data<-unique(new_data)
+sample <- sentence[sample(length(sentence), 100)]#Sampling 100 sentences
+sample <- str_replace(sample, "\\.", "")  #Deleting "." in the sentences
+my_words<-vector()
+temp_words<-vector()
+for (i in sample) {                    #For every element in sentences
+  temp_words <- str_split(sample, " ") #Add sentences in vector
+  for (word in temp_words){              #For every word in sentences
+    my_words <- c(my_words, word)        #Add word to my_words vector
+  }
+}
+new_data<-str_to_lower(my_words)
+new_data<-unique(new_data)               #Remove duplication
 kable(head(new_data,10)) #Results are truncated to only first 10 values
 ```
 \
@@ -99,7 +109,7 @@ Results are truncated to only first 10 values
 ```{r}
 second_result<-new_data[str_detect(new_data, "^a.*e$")]
 ```
-Words that starts with a and ends with e (there are none) : "`r second_result`" \
+Words that starts with a and ends with e : "`r second_result`" \
 \
 3.Calculate the number of words which have more than 3 vowels.
 ```{r}
@@ -107,13 +117,13 @@ third_result<-new_data[str_count(new_data,"[aeiou]")>3]
 third_result<-length(third_result)
 ```
 \
-The number of words that have mor ethan 3 vowels: "`r third_result``" \
+The number of words that have mor ethan 3 vowels: "`r third_result`" \
 \
 4.List the five longest word in your data.
 ```{r}
 fourth_result<-tail(new_data[order(str_count(new_data,"."))], 5)
 ```
-The five longest word: "`r fourth_result``" \
+The five longest word: "`r fourth_result`" \
 \
 5.Try to find word(s) which contain any of these words: age, any, day, exp, her, pro, the. \
 ```{r}
@@ -122,5 +132,4 @@ str_match<-str_c(words,collapse="|") #Concat strings
 has_str<-str_subset(new_data,str_match)
 fifth_result<-has_str
 ```
-Words that are found: "`r fifth_result``" \
-
+Words that are found: "`r fifth_result`" \
