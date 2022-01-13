@@ -62,23 +62,43 @@ is.prime(prime_vector)
 #Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters.
 #Sort the words containing the same number of letters alphabetically. For having text, you may use Sentences in tidyverse.
 #Select 5 or 6 sentences randomly from Sentences. 
-
 library(tidyverse)
 library(stringr)
+set.seed(2018556059)
+
+
 sentence<-stringr::sentences
 
-sample<-sentence[sample(nchar(sentence), 5)] #Sampling 5 sentences
-sample_words<-vector()
-sample<-c(sample_words,unlist(strsplit(gsub("\\.","",sample)," "))) #Add words from sentences
+a<-sample(1:2,1) #Flip a coin
+a<-if_else(a==1,5,6) #If it is 1 a is 5 (if it is 2 a is 6)
+main_sample <- sentence[sample(length(sentence), a)]#Sampling 5 or 6 sentences randomly
+sample <- str_replace(main_sample, "\\.", "")  #Deleting "." in sentences.
+
+
 
 sentence.sort<-function(x){
-    x<-tolower(x) #Lower the words
-    sorted<-str_sort(x, locale="eng") #Sort alphabetically
-    sorted<-x[order(str_count(x,"."))] #Order by word length
-    return(paste(sorted, collapse = " ")) #Concatenate every word separated by " "
+  len_words<-vector() #length of words
+  my_words<-vector()
+  temp_words<-vector()
+  
+  for (i in x) { #For every element in sentences
+    temp_words <- str_split(x, " ") #Add sentences in vector
+    for (word in temp_words){              #For every word in sentences
+      my_words <- c(my_words, word)        #Add word to my_words vector
+    }
+  }
+  my_words<-unique(my_words)               #Remove duplication
+  for(word in my_words){                   
+    len_words<-c(len_words,nchar(word))    #Save length of the words
+  }
+  x<-my_words
+  
+  x<-tolower(x) #Lower the words
+  sorted<-x[order(len_words)] #Order by word length
+  #Sort the words containing the same number of letters alphabetically. unfinished.
+  #sorted<-str_sort(x, locale="eng") #Sort alphabetically
+  return(paste(sorted, collapse = " ")) #Concatenate every word separated by " "
 }
 
 print(sentence.sort(sample))
 
-#[1] "no the was the the was and the him the the the meal bell rang hung limp girl gave kept home week lift over wrist 
-#badly young clear third stone fence cooked before square strained response sickness"
