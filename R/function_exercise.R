@@ -35,6 +35,7 @@ is.prime <- function(prime_vector) {
     if(flag == 1) {           #If flag is 1, it is prime
       prime<-c(prime,x)       #Add to prime
     } else {                  #Else flag is 0
+      
       non_prime<-c(non_prime,x)  #Add to non_prime. Now add it's dividers.
       non_prime<-c(non_prime,paste("[",divider,"]"))
       divider<-x/divider
@@ -77,12 +78,11 @@ sample <- str_replace(main_sample, "\\.", "")  #Deleting "." in sentences.
 
 
 sentence.sort<-function(x){
-  len_words<-vector() #length of words
   my_words<-vector()
   temp_words<-vector()
   
-  for (i in x) { #For every element in sentences
-    temp_words <- str_split(x, " ") #Add sentences in vector
+  for (i in x) {                           #For every element in sentences
+    temp_words <- str_split(x, " ")        #Add sentences in vector
     for (word in temp_words){              #For every word in sentences
       my_words <- c(my_words, word)        #Add word to my_words vector
     }
@@ -92,12 +92,10 @@ sentence.sort<-function(x){
     len_words<-c(len_words,nchar(word))    #Save length of the words
   }
   x<-my_words
-  
-  x<-tolower(x) #Lower the words
-  sorted<-x[order(len_words)] #Order by word length
-  #Sort the words containing the same number of letters alphabetically. unfinished.
-  #sorted<-str_sort(x, locale="eng") #Sort alphabetically
-  return(paste(sorted, collapse = " ")) #Concatenate every word separated by " "
+  x<-tolower(x)                            #Lower the words
+  sorted<-str_sort(x, locale="eng")        #Sort alphabetically
+  sorted<-sorted[order(nchar(sorted), sorted)]
+  return(paste(sorted, collapse = " "))    #Concatenate every word separated by " "
 }
 
 print(sentence.sort(sample))
