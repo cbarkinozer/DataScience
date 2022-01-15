@@ -26,7 +26,6 @@ is.prime <- function(prime_vector) {
       for(i in 2:(x-1)) { # i from 2 to last number
         if ((x %% i) == 0) { #Check if i can divide number
           flag = 0           #Flag set to 0
-          divider=i          #Divider saved
           break
         }
       }
@@ -36,10 +35,27 @@ is.prime <- function(prime_vector) {
       prime<-c(prime,x)       #Add to prime
     } else {                  #Else flag is 0
       
-      non_prime<-c(non_prime,x)  #Add to non_prime. Now add it's dividers.
-      non_prime<-c(non_prime,paste("[",divider,"]"))
-      divider<-x/divider
-      non_prime<-c(non_prime,paste("[",divider,"]")) 
+      non_prime<-c(non_prime,x)  #Add to non_prime. Now add it's prime factors
+      
+      #Least common diviser to find prime factors 
+      if (x > 2) {
+        prime_factor <- vector()
+        while(x %% 2 == 0){
+          prime_factor = c(prime_factor, 2)
+          x = x/2
+        }
+        
+        factor_count = 3
+        while(x != 1) {
+          while(x %% factor_count == 0) {
+            prime_factor = c(prime_factor, factor_count)
+            x = x/factor_count
+          }
+          factor_count = factor_count + 2
+        }
+      }
+     
+      non_prime<-c(non_prime,paste("[",prime_factor,"]")) #Add dividers 
       
     }
     
@@ -54,7 +70,7 @@ is.prime(prime_vector)
 #[1] "Prime numbers:"
 #[1]  89 107
 #[1] "Non-prime numbers:"
-#[1] "597"     "[ 3 ]"   "[ 199 ]" "931"     "[ 7 ]"   "[ 133 ]" "1083"    "[ 3 ]"   "[ 361 ]"
+#[1] "597"     "[ 3 ]"   "[ 199 ]" "931"     "[ 7 ]"   "[ 7 ]"   "[ 19 ]"  "1083"    "[ 3 ]"   "[ 19 ]"  "[ 19 ]" 
 
 
 
@@ -88,9 +104,6 @@ sentence.sort<-function(x){
     }
   }
   my_words<-unique(my_words)               #Remove duplication
-  for(word in my_words){                   
-    len_words<-c(len_words,nchar(word))    #Save length of the words
-  }
   x<-my_words
   x<-tolower(x)                            #Lower the words
   sorted<-str_sort(x, locale="eng")        #Sort alphabetically
