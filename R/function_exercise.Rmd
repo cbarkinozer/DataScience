@@ -13,30 +13,54 @@ Your result will be Prime numbers : 89 107 Non-prime numbers : 597 [3 199]  931 
 library(tidyverse)
 ```
 ```{r}
-prime<-vector()
-non_prime<-vector()
 flag = 0
 is.prime <- function(prime_vector) {
+  
+  prime<-vector()
+  non_prime<-vector()
+  
   divider<-0
   for(x in prime_vector ){ #For every number in vector
+    
     if(x > 1) {
       flag = 1
       for(i in 2:(x-1)) { # i from 2 to last number
         if ((x %% i) == 0) { #Check if i can divide number
           flag = 0           #Flag set to 0
-          divider=i          #Divider saved
           break
-        }}} 
+        }
+      }
+    } 
     if(x == 2){flag = 1}      #If number is 2, it is prime
     if(flag == 1) {           #If flag is 1, it is prime
       prime<-c(prime,x)       #Add to prime
     } else {                  #Else flag is 0
-      non_prime<-c(non_prime,x)  #Add to non_prime. Now add it's dividers.
-      non_prime<-c(non_prime,paste("[",divider,"]"))
-      divider<-x/divider
-      non_prime<-c(non_prime,paste("[",divider,"]")) 
-    }}
-  #print(c("Prime numbers:",prime,"\n Non-prime numbers:",non_prime))
+      
+      non_prime<-c(non_prime,x)  #Add to non_prime. Now add it's prime factors
+      
+      #Least common diviser to find prime factors 
+      if (x > 2) {
+        prime_factor <- vector()
+        while(x %% 2 == 0){
+          prime_factor = c(prime_factor, 2)
+          x = x/2
+        }
+        
+        factor_count = 3
+        while(x != 1) {
+          while(x %% factor_count == 0) {
+            prime_factor = c(prime_factor, factor_count)
+            x = x/factor_count
+          }
+          factor_count = factor_count + 2
+        }
+      }
+     
+      non_prime<-c(non_prime,paste("[",prime_factor,"]")) #Add dividers 
+      
+    }
+    
+  }
   print(paste(c("Prime numbers:",prime,"\n Non-prime numbers:",non_prime), collapse=" "))
   }
 ```
@@ -62,33 +86,24 @@ sentence<-stringr::sentences
 a<-sample(1:2,1) #Flip a coin
 a<-if_else(a==1,5,6) #If it is 1 a is 5 (if it is 2 a is 6)
 main_sample <- sentence[sample(length(sentence), a)]#Sampling 5 or 6 sentences randomly
-sample <- str_replace(main_sample, "\\.", "")  #Deleting "." in sentences
-
+sample <- str_replace(main_sample, "\\.", "")  #Deleting "." in sentences.
 sentence.sort<-function(x){
-  len_words<-vector() #length of words
   my_words<-vector()
   temp_words<-vector()
-  
-  for (i in x) { #For every element in sentences
-    temp_words <- str_split(x, " ") #Add sentences in vector
+  for (i in x) {                           #For every element in sentences
+    temp_words <- str_split(x, " ")        #Add sentences in vector
     for (word in temp_words){              #For every word in sentences
       my_words <- c(my_words, word)        #Add word to my_words vector
     }
   }
   my_words<-unique(my_words)               #Remove duplication
-  for(word in my_words){
-    len_words<-c(len_words,nchar(word))    #Save length of the words
-  }
   x<-my_words
-  
-  x<-tolower(x) #Lower the words
-  sorted<-x[order(len_words)] #Order by word length
-  #Sort the words containing the same number of letters alphabetically.
-  #sorted<-str_sort(x, locale="eng") #Sort alphabetically
-  return(paste(sorted, collapse = " ")) #Concatenate every word separated by " "
+  x<-tolower(x)                            #Lower the words
+  sorted<-str_sort(x, locale="eng")        #Sort alphabetically
+  sorted<-sorted[order(nchar(sorted), sorted)]
+  return(paste(sorted, collapse = " "))    #Concatenate every word separated by " "
 }
 ```
-
 My sentences are: \
 "`r main_sample`" \
 \
