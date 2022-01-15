@@ -112,4 +112,5 @@ sentence.sort<-function(x){
 }
 
 print(sentence.sort(sample))
-
+#[1] "a he of to and her his the the use was beat blue coat dark firm full glue lent tall with draft first gaunt heart
+#purse sheet trash write pencil strokes useless stranger strongly background"
