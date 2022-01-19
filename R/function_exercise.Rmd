@@ -5,10 +5,7 @@ date: "09 01 2022"
 output: word_document
 ---
 ****
-1.Write a function that finds a prime number(s) given a set of numbers. \
-Your function also provides prime factors of non-prime numbers. \
-For example you have a vector of numbers like (89, 107, 597, 931, 1083). \
-Your result will be Prime numbers : 89 107 Non-prime numbers : 597 [3 199]  931 [7 7 19] 1083 [3 19 19] \
+### 1.Write a function that finds a prime number(s) given a set of numbers. Your function also provides prime factors of non-prime numbers. For example you have a vector of numbers like (89, 107, 597, 931, 1083). Your result will be Prime numbers : 89 107 Non-prime numbers : 597 [3 199]  931 [7 7 19] 1083 [3 19 19]
 ```{r include=FALSE}
 library(tidyverse)
 ```
@@ -69,12 +66,9 @@ prime_vector<-c(89,107,597,931,1083)
 result<- is.prime(prime_vector)
 ```
 Result for the vector (89, 107, 597, 931, 1083): \
-"`r result`" \
+"`r result`"
 
-2.Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters. \
-Sort the words containing the same number of letters alphabetically. For having text, you may use Sentences in tidyverse. \
-Select 5 or 6 sentences randomly from Sentences. \
-
+### 2.Write a function that finds the letter numbers of all words in a given text and sorts the text according to those numbers from words with few letters to words with many letters. Sort the words containing the same number of letters alphabetically. For having text, you may use Sentences in tidyverse. Select 5 or 6 sentences randomly from Sentences.
 ```{r include=FALSE}
 library(tidyverse)
 library(stringr)
@@ -108,4 +102,4 @@ My sentences are: \
 "`r main_sample`" \
 \
 My function return the result: \
-"`r sentence.sort(sample)`" \
+"`r sentence.sort(sample)`"
