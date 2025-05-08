@@ -185,8 +185,6 @@ Ol kıldı bize vefâ andandur ihsan bana
 
 Ben kuş dilin bilürem söyler Süleymân bana
 
-Forma
-
 Yûnus bu halk içinde eksiklüdür Hak bilür
 Dîvâne olmış çağrur dervişlik bühtan bana
 
@@ -750,8 +748,6 @@ Fahr idelüm erenleri malûm ola münkür nedür
  Bunda beli diyen kişi anda tamâm olur işi
 Bizden nişan isteyene ol Hallâcı Mansûr nedür
 
-ıf
-
 Yûnus imdi söyle haki Allah oldı sana sâki
 Gider gönlündeki şeki elündeki menkür nedür
 
@@ -781,8 +777,6 @@ Sohbetlerde Yûnusı hergiz unu  mayalar
 İşidün iy ulular âhır zanıân olısar
 
 Sağ müsülman seyrekdür ol da gümân olısar
-
-Forma
 
 Danişmend okur dutmaz derviş yolm gözetmez
 
@@ -1312,8 +1306,6 @@ Sevelüm sevilelüm dünya kimseye kalmaz
 
  Yûnus sözin anlarısan manîsini dinlerisen
 Sana eyü dirlik gerek bunda kimsene kalmaz
-
-uv
 
 Nidem ben bu gönül ile benüm ile bir dem durmaz
 
@@ -2746,7 +2738,6 @@ Ne sermâye var ne dükkân hazara neye varayın
 Günâhum çok gönlüm sizer ben dosta çok yalvarayın
 
 Günlüm eydür dost benümdür gözüm eydür dost
-
 benümdür
 
 Gönlüm eydür göze sabr it bir dem haberin sorayın
@@ -4239,8 +4230,6 @@ Kadem kim basa sultandan içeri
 Tecelliden nasib irdi kimine
 Kİminün maksûdı bundan içeri
 
-Sı
-
 Kime dldar güninden şule değse
 An un şulesi var günden içeri
 
@@ -4639,12 +4628,6 @@ Görüp Hablbün bizi şefi ola mı yâRab
 
 Yûnus kabre vardukda Münker Nekir geldükde
 Bize suâl itdükde dilüm döne mi yâRab
-
-Yunus Emrenin olmayıp obur Yunusa Aşık Yûnusa ait olan
-
-fakat asırlar boyunca vc bugün Yûnusun zannedilen şiirlerin en
-
-tanınmışlarından birkaçını buraya alıyoruz
 
 Canum kurban olsun senün yoluna
 Adı güzel kendü güzel Muhammed
@@ -5067,11 +5050,6 @@ Nefret ve şikâyet nereye kadar
 Aman ha aman bunlardan uzak dur
 Yazılmasın nefs defterine kusur
 
-Gark Suya batma
-boğulma
-Arı Saf temiz
-Âsî İsyan eden baş
-kaldıran
 Nefsin isteklerini geç cana bak
 Söz dinlersen olur canın nura gark
 Nefs kibirlidir sultanı bilmez
@@ -5098,9 +5076,6 @@ Asıl mânâ budur boş lakırdı çok
 Bu yolda zıtlaşma olmaz mânâ var
 Her neyi seversen odur sana yâr
 
-Şah Yönetici
-Beniz Yüz rengi
-Hırs Açgözlülük
 Akıl katında yarım gün durmayan
 Şah katına lâyık olur mu ey can
 Gördüm gelir benzi sararmış bir er
@@ -5650,19 +5625,11 @@ Her lahza zevk  safa olur kârı
 Sana can feda ey sabır iyesi
 Sabırdır benim canımın gıdası
 
-Özge Hususi özel
 Sen ne zaman bu sabr ile olursan
 Seninle hoş safa bulur  mekân
 Yunus işin sabırla kolay olur
 Sabreden kişi özge bir mülk bulur
 
-Mat etmek Yenmek
-galip olmak
-İhsan Bağış
-Azad etmek Köleye
-özgürlük vermek
-Yâd Hatırlamak
-bahsetmek
 Bilişi Bildik tanıdık
 Dinle söyleyeyim sabır hâlini
 Cümle âlem sabra verdi malını
@@ -5716,15 +5683,6 @@ Sabır evinde cümle erenler bir
 Nebi ve veli yolu sabra uğrar
 Sen de varmak istersen sabırla var
 
-Serencam Başa gelen
-bir durum veya olay
-serüven
-Onmak Düzelmek
-Miraç Peygamberimizin
-göğe çıktığıAllahın
-huzuruna gece
-Tûr Hazreti Musaya
-Allahnın tecelli ettiği dağ
 Sabır gözet sabır aziz olursun
 Sabır gözetirsen mânâ bulursun
 Sabırsız kişilerin dirliği ham
@@ -5839,11 +5797,7 @@ Hiç bir kimse yarar görmez özünden
 Ezeldendir haber bu dem değildir
 Cimri bir kişinin nazarı olmaz
 Haris emeli çoktur arı olmaz
-İkrar Açıkça söyleme
 
-İbret Kötü bir
-olaydan alınması
-gereken ders
 Cimrinin gözlerinde ibret olmaz
 Hiç kimseye bunlardan himmet olmaz
 Sultan ganîdir cimri bunu görmez
@@ -5974,11 +5928,6 @@ Onun huzurunda dilekler makbul
 Makbul olur kim olursa ona kul
 Akıl der Beri gel gözlerini aç
 Cömertlik nerde ise  yana kaç
-Baki Ölümsüz
-Feryat Ağlayış
-inleyiş yardım
-Zulüm İşkence azap
-Makbul Layık hoş
 
 
 Götürsün cömertlik tutup elini
@@ -6301,7 +6250,6 @@ Kimseyi anmaya kalmazdı hâlin
 Eğer görseydin hazırlık kılardın
 Hesabını senin kendin alırdın
 
-
 Saadet olsa Hak verse basiret
 Görürdün sana ne yapmış bu gıybet
 Nice yıl bir kişi gıybete uymuş
@@ -6314,7 +6262,6 @@ Cümle derdini hâlini arz kıldı
 Akıl ne dediyse göz yumdu kaldı
 İşi doğruluğa buyurdu Akıl
 Hemen gel bana acele yârî kıl
-
 
 Çağırdı doğruluk yaranlarını
 Özüne sapmasız varanlarını
@@ -6356,7 +6303,6 @@ Amelindir senin bir yere gitmez
 Dürüstlük kaftanın  dem giyesin
 Cümle ahaliye doğru diyesin
 
-
 Göz doğruluk göstersin bakışına
 Ta ki senden yavuz işler taşına
 Çırayı yakınca karanlık kaçar
@@ -6369,7 +6315,6 @@ Ev aydınlık oldu hırsız bilindi
 İmanlıya yüzünü gösterir Hak
  hırsız dediğim şeytandır gezer
 Ki her an içinde bin fitne dizer
-
 
 Makamını yıkarsan ibadetle
 Muradına ulaşırsın devletle
